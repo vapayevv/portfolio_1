@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Dars Jadvali</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;font-family:Inter;
+  background:#f1f5f9;
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;
+}
+.nav{position:fixed;top:20px;left:20px}
+.nav a{
+  background:#2563eb;color:#fff;
+  padding:10px 16px;border-radius:10px;
+  text-decoration:none;
+}
+.card{
+  background:white;padding:24px;
+  width:100%;max-width:420px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+select{width:100%;padding:12px;margin-top:10px}
+li{list-style:none;padding:8px;background:#f8fafc;margin-top:6px}
+</style>
+</head>
+<body>
+
+<nav class="nav"><a href="index.html">🏠 Asosiy</a></nav>
+
+<div class="card">
+<h2>Dars jadvali</h2>
+<select id="day"></select>
+<ul id="list"></ul>
+</div>
+
+<script>
+const data={
+ Dushanba:["Algebra","Ingliz tili", "Ona tili", "Rus tili"],
+ Seshanba:["Tarix","Ona tili", "Jismoniy tarbiya", "Algebra"],
+ Chorshanba:["Informatika", "Geometriya", "Biologiya", "Geografiya"],
+ Payshanba:["Geografiya", "Ingliz tili", "Algebra", "Ona tili"],
+ Juma:["Jismoniy tarbiya", "Rus tili", "Adabiyot", "Algebra"]
+};
+const d=document.getElementById("day");
+const l=document.getElementById("list");
+Object.keys(data).forEach(x=>d.innerHTML+=`<option>${x}</option>`);
+function r(){l.innerHTML="";data[d.value].forEach(i=>l.innerHTML+=`<li>${i}</li>`);}
+d.onchange=r;r();
+</script>
+
+</body>
+</html>

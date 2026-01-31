@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Reyting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+ margin:0;font-family:Inter;
+ background:#fff7ed;
+ display:flex;justify-content:center;align-items:center;
+ min-height:100vh;
+}
+.nav{position:fixed;top:20px;left:20px}
+.nav a{background:#2563eb;color:white;padding:10px 16px;border-radius:10px;text-decoration:none}
+.card{
+ background:white;padding:24px;
+ width:100%;max-width:460px;
+ border-radius:16px;
+ box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+table{width:100%}
+td,th{padding:10px}
+button{width:100%;padding:12px;margin-top:16px}
+</style>
+</head>
+<body>
+
+<nav class="nav"><a href="index.html">🏠 Asosiy</a></nav>
+
+<div class="card">
+<h2>O‘quvchilar reytingi</h2>
+<table id="t">
+<tr><th>Ism</th><th>Ball</th></tr>
+<tr><td>Ali</td><td><input value="80"></td></tr>
+<tr><td>Vali</td><td><input value="95"></td></tr>
+<tr><td>Guli</td><td><input value="70"></td></tr>
+</table>
+<button onclick="s()">Reytinglash</button>
+</div>
+
+<script>
+function s(){
+ const t=document.getElementById("t");
+ [...t.rows].slice(1)
+ .sort((a,b)=>b.cells[1].children[0].value-a.cells[1].children[0].value)
+ .forEach(r=>t.appendChild(r));
+}
+</script>
+
+</body>
+</html>
